@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block onload %}, get_note(){% endblock %}
+
+{% block content %}
+<div style="padding-bottom: 2rem;"></div>
+<div class="bg-light card">
+    <div class="bg-light-a card-body">
+        <h1 id="name"></h1>
+        <hr>
+        <pre id="content"></pre>
+    </div>
+</div>
+<div style="padding-bottom: 1rem;"></div>
+<a class="btn btn-primary" href="" id="button" role="button">Edit</a>
+{% endblock %}

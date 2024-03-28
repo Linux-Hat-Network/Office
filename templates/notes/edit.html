@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block onload %}, get_note(1){% endblock %}
+
+{% block content %}
+<div style="padding-bottom: 2rem;"></div>
+<div class="bg-light card">
+    <div class="bg-light-a card-body">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="bg-light form-control" id="name" name="name" value="">
+        <div style="padding-bottom: 1rem;"></div>
+        <label for="content" class="form-label">Content</label>
+        <div class="form-floating">
+            <textarea class="bg-light form-control" placeholder="Leave a comment here" id="content" name="content" style="height: 500px"></textarea>
+        </div>
+    </div>
+</div>
+<div style="padding-bottom: 1rem;"></div>
+<a class="btn btn-primary" onclick="edit_note()" id="button" role="button">Submit</a>
+{% endblock %}

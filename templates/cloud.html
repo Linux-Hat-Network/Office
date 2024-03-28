@@ -1,0 +1,102 @@
+{% extends "layout.html" %} {% block title %}Cloud{% endblock %} {% block header
+%}Cloud{% endblock %} {% block onload %}, cloud_load(){% endblock %} {% block
+content %}
+<h1>Cloud</h1>
+
+<h1><kbd id="path">Loading...</kbd></h1>
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  New folder
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="bg-light-a modal-content">
+      <div class="bg-light-a modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New folder</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Cancel"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div id="folder_alert"></div>
+        <label for="name" class="form-label">Name :</label>
+        <input
+          type="text"
+          class="bg-light form-control"
+          id="folder_name"
+          name="name"
+        />
+      </div>
+      <div class="modal-footer">
+        <button onclick="cloud_new_folder()" class="btn btn-primary">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="padding-top: 0.2cm"></div>
+<div class="bg-light card">
+  <div class="bg-light-a card-body">
+    <div class="input-group bg-light">
+      <input
+        type="file"
+        class="upload form-control"
+        id="fileInput"
+        aria-describedby="inputGroupFileAddon04"
+        aria-label="Upload"
+      />
+      <button onclick="cloud_upload()" class="btn btn-primary">Upload</button>
+    </div>
+  </div>
+</div>
+<div style="padding-top: 0.2cm"></div>
+<h3>Storage :</h3>
+<h4 id="storage">Loading</h4>
+<div class="progress" id="progress">
+  <div
+    class="progress-bar"
+    role="progressbar"
+    aria-label="Basic example"
+    id="progress-bar"
+    style="width: 0%"
+  ></div>
+</div>
+<hr />
+<div id="parent">
+  <div class="bg-light card">
+    <div class="bg-light-a card-body">
+      <div class="box-teams">
+        <div>
+          <img src="/static/folder_icon.png" height="50" />
+          <h3 class="text-start list-inline-item">../</h3>
+        </div>
+        <div>
+          <button onclick="" id="parent-path" class="btn btn-primary">
+            Go
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding-top: 0.2cm"></div>
+</div>
+<div id="items"></div>
+<h3 id="no-items">No items here at the moment.</h3>
+{% endblock %}
