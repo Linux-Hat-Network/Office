@@ -68,10 +68,10 @@ def Key(key):
                 new_user = Users(data_limit = data_limit, user_id = key_info.get("user_id"))
                 db.session.add(new_user)
                 db.session.commit()
-                if not os.path.exists("../cloud"):
-                    os.mkdir("../cloud")
-                if not os.path.exists(f"../cloud/{key_info.get('user_id')}/"):
-                    os.mkdir(f"../cloud/{key_info.get('user_id')}/")
+                if not os.path.exists("cloud"):
+                    os.mkdir("cloud")
+                if not os.path.exists(f"cloud/{key_info.get('user_id')}/"):
+                    os.mkdir(f"cloud/{key_info.get('user_id')}/")
             return db.session.query(Keys).filter_by(name = key).first()
         return False
 
