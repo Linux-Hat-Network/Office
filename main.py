@@ -52,11 +52,11 @@ with app.app_context():
 
 def Key(key):
     with app.app_context():
-        data = db.session.query(Keys).filter_by(name = key).first()
-        if data:
-            return data
         key_info = post("https://auth.linuxhat.net/api/key/getinfo", json={"key": key}).json()
         if key_info.get("user_id") :
+            data = db.session.query(Keys).filter_by(name = key).first()
+            if data:
+                return data
             new_key = Keys(name = key, user_id = key_info.get("user_id"))
             db.session.add(new_key)
             db.session.commit()
